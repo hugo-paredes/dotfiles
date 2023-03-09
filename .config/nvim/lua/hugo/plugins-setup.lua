@@ -30,23 +30,25 @@ end
 return packer.startup(function(use)
   -- packer can manage itself
   use("wbthomason/packer.nvim")
-
   -- lua functions that many plugins use
   use("nvim-lua/plenary.nvim")
-
   -- tmux & split window navigation
   use("christoomey/vim-tmux-navigator")
-
   -- maximizes and restores current window
   use("szw/vim-maximizer")
-
   -- essential plugins
   use("tpope/vim-surround") -- add, delete, change surroundings (it's awesome)
   use("inkarkat/vim-ReplaceWithRegister") -- replace with register contents using motion (gr + motion)
-
   -- commenting with gc
   use("numToStr/Comment.nvim")
-
   -- file explorer
   use("nvim-tree/nvim-tree.lua")
+  -- managing & installing lsp servers, linters & formatters
+  use("williamboman/mason.nvim") -- in charge of managing lsp servers, linters & formatters
+  use("williamboman/mason-lspconfig.nvim") -- bridges gap b/w mason & lspconfig
+
+  -- configuring lsp servers
+  use("neovim/nvim-lspconfig") -- easily configure language servers
+  use("hrsh7th/cmp-nvim-lsp") -- for autocompletion
+  
 end)
